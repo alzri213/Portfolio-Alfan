@@ -1,5 +1,5 @@
 import { HTMLProps, useEffect, useRef } from "react";
-import { animate, AnimationPlaybackControls } from "framer-motion";
+import { useMotionValue, animate } from "framer-motion";
 
 interface AnimateCounterProps extends HTMLProps<HTMLSpanElement> {
   total: number;
@@ -7,22 +7,20 @@ interface AnimateCounterProps extends HTMLProps<HTMLSpanElement> {
 
 const AnimateCounter = ({ total, ...rest }: AnimateCounterProps) => {
   const countRef = useRef<HTMLSpanElement>(null);
-  const initialCount = 0;
+  const motionValue = useMotionValue(0);
 
   useEffect(() => {
-    const count = countRef.current;
-
-    const controls: AnimationPlaybackControls = animate(initialCount, total, {
+    const controls = animate(motionValue, total, {
       duration: 1,
       onUpdate: (value) => {
-        if (count) {
-          count.textContent = Math.floor(value).toString();
+        if (countRef.current) {
+          countRef.current.textContent = Math.floor(value).toString();
         }
       },
     });
 
     return () => controls.stop();
-  }, [total]);
+  }, [total, motionValue]);
 
   return <span {...rest} ref={countRef} />;
 };

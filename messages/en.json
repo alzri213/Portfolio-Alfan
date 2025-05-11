@@ -32,16 +32,14 @@
       "title": "Education",
       "sub_title": "My educational journey.",
       "school": "SMK TELEKOMUNIKASI TELESANDI BEKASI",
-      "jurusan": "Rekayasa Perangkat Lunak",
+      "major": "Rekayasa Perangkat Lunak (RPL)",
       "logo": "/images/education/telkom.png",
       "location": "Bekasi, Indonesia 🇮🇩",
       "degree": "-",
       "start_year": 2024,
       "end_year": 2027,
       "link": "https://smktelekomunikasitelesandi.sch.id/"
-    },
-    "resume_download_button": "Download Resume",
-    "portfolio_download_button": "Download Portfolio"
+    }
   },
   "AchievementsPage": {
     "title": "Achievements",
